@@ -100,18 +100,49 @@ p palindrome("baloney")
 # Input: "ABCDEFG", "ABCDEFG",
 # Output: 0
 
-def samesies(string1, string2)
+# def samesies(string1, string2)
+#   index = 0
+#   difference = 0
+#   while index < string1.length
+#     if string1[index] == string2[inde
+#       index += 1
+#     else
+#       difference += 1
+#       index += 1
+#     end
+#   end
+#   return difference
+# end
+
+# p samesies("ABCDEFG", "ABCXEOG")
+
+
+# Given ONE array of strings, return a new array that contains every combination of each string with every other string in the array. Input: ["a", "b", "c", "d"] Output: ["ab", "ac", "ad", "ba", "bc...
+
+# Input: ["a", "b", "c", "d"]
+  
+# Output: ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"]
+
+#Use a while loop to go through each letter
+#Use an index to get through each one, loop through while < array.lenth
+#have second index that loops through array again
+
+def combostring(array)
   index = 0
-  difference = 0
-  while index < string1.length
-    if string1[index] == string2[index]
-      index += 1
-    else
-      difference += 1
-      index += 1
+  index2 = 0
+  new_array = []
+  while index < array.length
+    while index2 < array.length
+      if index != index2
+        new_array << array[index]+array[index2]
+      end
+      index2 += 1
     end
+    index2 = 0
+    index += 1
   end
-  return difference
+  return new_array
 end
 
-p samesies("ABCDEFG", "ABCXEOG")
+p combostring(["a", "b", "c", "d"])
+p combostring(["a", "a", "c", "d"])
