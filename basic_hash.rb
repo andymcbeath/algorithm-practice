@@ -144,3 +144,38 @@ p id_to_name([
   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
   ],users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."})
+
+#   Given two strings, return true if they are anagrams of each other, and false if they are not. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+# Do not use any built-in sort methods.
+
+# Input: “silent”, “listen”
+# Output: true
+
+# Input: “frog”, “bear”
+# Output: false
+
+def annagram_truth(word1, word2)
+  letter_in_word = {}
+  letter_in_word2 = {}
+  word1.chars.each do |letter|
+    if letter_in_word[letter]
+      letter_in_word[letter] += 1
+    else 
+      letter_in_word[letter] = 1
+    end
+  end
+  word2.chars.each do |letter|
+    if letter_in_word2[letter]
+      letter_in_word2[letter] += 1
+    else
+      letter_in_word2[letter] = 1
+    end
+  end
+  if letter_in_word == letter_in_word2
+    return true
+  else
+    return false
+  end
+end
+p annagram_truth("silent", "listen")
